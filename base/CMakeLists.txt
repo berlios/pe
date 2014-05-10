@@ -3,20 +3,24 @@ project(base)
 # List all the files here in the alphabetical order
 
 # .h files (headers)
-set(BASE_CXX
-  mp.cpp
+set(BASE_HXX
+  common.h
+  task.h
 )
 
 # .cpp non-test files
-set(BASE_HXX
-  mp.h
+set(BASE_CXX
+  common.cpp
+  task.cpp
 )
 
 # *_test.cpp files
 set(BASE_TESTS
-  mp_test.cpp
+  common_test.cpp
 )
 
 add_library(base ${BASE_CXX} ${BASE_HXX})
+target_link_libraries(base)
+
 add_executable(base_tests ${BASE_TESTS})
-target_link_libraries(base_tests base gtesting ${GMPXX_LIBRARY})
+target_link_libraries(base_tests base gtesting)
