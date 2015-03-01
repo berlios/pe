@@ -1,10 +1,12 @@
 #include "base/common.h"
 
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 using std::string;
+using std::vector;
 
 TEST(BaseCommon, ToString) {
   EXPECT_EQ("0", ToString(0));
@@ -38,4 +40,15 @@ TEST(BaseCommon, DeleteLeadingZeroes) {
   tmp = "00";
   DeleteLeadingZeroes(&tmp);
   EXPECT_EQ("0", tmp);
+}
+
+TEST(BaseCommon, Split) {
+  string str = ",0,11,222";
+  vector<string> list = Split(str, ',');
+
+  EXPECT_EQ(4, list.size());
+  EXPECT_EQ("", list[0]);
+  EXPECT_EQ("0", list[1]);
+  EXPECT_EQ("11", list[2]);
+  EXPECT_EQ("222", list[3]);
 }

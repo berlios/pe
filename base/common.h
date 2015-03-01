@@ -2,6 +2,7 @@
 #define BASE_COMMON_H_
 
 #include <string>
+#include <vector>
 
 // A macro to disallow the copy constructor and operator= functions
 // This should be used in the private: declarations for a class
@@ -15,5 +16,7 @@ void DeleteLeadingChars(char c, std::string *str);
 // This function does not check the string to contain only digits.
 // In fact, it doesn't check anything.
 void DeleteLeadingZeroes(std::string *str);
+
+std::vector<std::string> Split(std::string to_split, char delimiter);
 
 #endif  // BASE_COMMON_H_
