@@ -17,6 +17,6 @@ void DeleteLeadingChars(char c, std::string *str);
 // In fact, it doesn't check anything.
 void DeleteLeadingZeroes(std::string *str);
 
-std::vector<std::string> Split(std::string to_split, char delimiter);
+std::vector<std::string> Split(const std::string &to_split, char delimiter);
 
 #endif  // BASE_COMMON_H_

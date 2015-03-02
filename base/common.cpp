@@ -36,7 +36,7 @@ class IsChar {
   char c_;
 };
 
-std::vector<std::string> Split(std::string to_split, char delimiter) {
+std::vector<std::string> Split(const std::string &to_split, char delimiter) {
   std::vector<std::string> ret;
 
   size_t start = 0;
