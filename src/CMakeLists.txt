@@ -8,14 +8,14 @@ set(SRC_HXX
 
 # .cpp non-test files
 set(SRC_CXX
-  task1.cpp
-  task2.cpp
-  task3.cpp
-  task4.cpp
-  task5.cpp
-  task6.cpp
-  task7.cpp
-  task8.cpp
+  task01.cpp
+  task02.cpp
+  task03.cpp
+  task04.cpp
+  task05.cpp
+  task06.cpp
+  task07.cpp
+  task08.cpp
   task10.cpp
   task11.cpp
   task12.cpp
