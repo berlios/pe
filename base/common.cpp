@@ -1,6 +1,7 @@
 #include "base/common.h"
 
 #include <algorithm>
+#include <fstream>
 #include <sstream>
 
 std::string ToString(int n) {
@@ -52,3 +53,11 @@ std::vector<std::string> Split(const std::string &to_split, char delimiter) {
 
   return ret;
 }
+
+void ReadFileIntoString(const std::string &filename, std::string *output) {
+  std::ifstream t(filename);
+  std::stringstream buffer;
+  buffer << t.rdbuf();
+  *output = buffer.str();
+}
+
