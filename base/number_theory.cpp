@@ -46,3 +46,34 @@ mpz_class SumOfProperDivisors(const mpz_class &number) {
   mpz_class total_sum = SumOfAllDivisors(number);
   return total_sum - number;
 }
+
+uint LengthOfRepeatingCycle(const mpq_class &fraction) {
+  auto copy = fraction;
+  copy.canonicalize();
+  auto f = Factorize(copy.get_den());
+  f.erase(2);
+  f.erase(5);
+  if (f.size() == 0) {
+    return 0;
+  }
+
+  uint k = 1;
+  mpz_class ten_to_the_power_of_k = 10;
+
+  while (true) {
+    mpq_class tmp = fraction*(ten_to_the_power_of_k - 1);
+    tmp.canonicalize();
+
+    auto denominator_factorization = Factorize(tmp.get_den());
+    denominator_factorization.erase(2);
+    denominator_factorization.erase(5);
+
+    if (denominator_factorization.size() == 0) {
+      return k;
+    } else {
+      k++;
+      ten_to_the_power_of_k *= 10;
+    }
+  }
+}
+
