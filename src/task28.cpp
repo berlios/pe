@@ -1,5 +1,3 @@
-#include <vector>
-
 #include "base/task.h"
 
 // If the square is (2n + 1)*(2n + 1) then
