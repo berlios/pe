@@ -29,3 +29,35 @@ TEST(LengthOfRepeatingCycle, BasicTest) {
   EXPECT_EQ(6, LengthOfRepeatingCycle(mpq_class(21, 49)));
   EXPECT_EQ(16, LengthOfRepeatingCycle(mpq_class(1, 17)));
 }
+
+TEST(Quadratic, BasicTest) {
+  Quadratic<int> f;
+  EXPECT_EQ(0, f(0));
+  EXPECT_EQ(0, f(1));
+  EXPECT_EQ(0, f(42));
+  EXPECT_EQ(0, f(-42));
+
+  // Set f(x) = x^2 + 2x + 1.
+  f.SetCoefficients(1, 2, 1);
+  EXPECT_EQ(1, f(0));
+  EXPECT_EQ(4, f(1));
+  EXPECT_EQ(43*43, f(42));
+  EXPECT_EQ(41*41, f(-42));
+
+  f = Quadratic<int>(-1, -3, 2);
+  EXPECT_EQ(2, f(0));
+  EXPECT_EQ(-1 - 3 + 2, f(1));
+  EXPECT_EQ(-42*42 - 3*42 + 2, f(42));
+  EXPECT_EQ(-42*42 + 3*42 + 2, f(-42));
+  
+  f.set_a(5);
+  EXPECT_EQ(5, f.a());
+
+  f.set_b(7);
+  EXPECT_EQ(7, f.b());
+
+  f.set_c(9);
+  EXPECT_EQ(9, f.c());
+
+  EXPECT_EQ(Quadratic<int>(5, 7, 9), f);
+}
