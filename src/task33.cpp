@@ -49,6 +49,8 @@ TASK(33) {
     }
   }
 
+  // CHECK_EQ(4, fractions.size())
+
   mpq_class tmp = 1;
   for (auto &fraction : fractions) {
     tmp *= fraction.first;
