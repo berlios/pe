@@ -38,3 +38,19 @@ TEST(DigitManipulation, Reverse) {
   // 585 in base 10 = 1001001001 in base 2.
   EXPECT_EQ(585, ReverseInBase(585, 2));
 }
+
+TEST(DigitManipulation, DeleteFirstAndLastDigits) {
+  EXPECT_EQ(0, DeleteLastDigit(7));
+  EXPECT_EQ(0, DeleteLastDigit(-3));
+
+  EXPECT_EQ(4567, DeleteLastDigit(45678));
+  EXPECT_EQ(-4567, DeleteLastDigit(-45673));
+  EXPECT_EQ(-4567, DeleteLastDigit(-45678));
+
+  EXPECT_EQ(0, DeleteFirstDigit(7));
+  EXPECT_EQ(0, DeleteFirstDigit(-3));
+
+  EXPECT_EQ(5678, DeleteFirstDigit(45678));
+  EXPECT_EQ(-5678, DeleteFirstDigit(-45678));
+
+}

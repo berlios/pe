@@ -11,9 +11,9 @@ DigitSet GetDigitSet(uint num) {
   return ret;
 }
 
-uint DigitCount(uint num) {
+uint DigitCount(const mpz_class &num) {
   uint k = 0;
-  uint power_of_ten = 1;
+  mpz_class power_of_ten = 1;
 
   while (num / power_of_ten > 0) {
     k++;
@@ -66,3 +66,15 @@ mpz_class ReverseInBase(const mpz_class &num, uint base) {
 mpz_class Reverse(const mpz_class &num) {
   return ReverseInBase(num, 10);
 }
+
+mpz_class DeleteFirstDigit(const mpz_class &num) {
+  uint length = DigitCount(abs(num)) - 1;
+  mpz_class tmp = 10;
+  mpz_pow_ui(tmp.get_mpz_t(), tmp.get_mpz_t(), length);
+  return num % tmp;
+}
+
+mpz_class DeleteLastDigit(const mpz_class &num) {
+  return num / 10;
+}
+
