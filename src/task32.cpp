@@ -1,43 +1,7 @@
 #include <set>
 
+#include "base/digit_manipulation.h"
 #include "base/task.h"
-#include "gtest/gtest.h"
-
-typedef std::set<int> DigitSet;
-
-DigitSet GetDigitSet(uint num) {
-  DigitSet ret;
-
-  while (num > 0) {
-    ret.insert(num % 10);
-    num = num / 10;
-  }
-
-  return ret;
-}
-
-uint DigitCount(uint num) {
-  uint k = 0;
-  uint power_of_ten = 1;
-
-  while (num / power_of_ten > 0) {
-    k++;
-    power_of_ten *= 10;
-  }
-
-  return k;
-}
-
-TEST(Task32, DigitSet) {
-  DigitSet digits = GetDigitSet(12344);
-  ASSERT_EQ(4, digits.size());
-  EXPECT_NE(digits.end(), digits.find(1));
-  EXPECT_NE(digits.end(), digits.find(2));
-  EXPECT_NE(digits.end(), digits.find(3));
-  EXPECT_NE(digits.end(), digits.find(4));
-
-  EXPECT_EQ(4, DigitCount(4067));
-}
 
 TASK(32) {
   DigitSet digits_of_i, digits_of_j, digits_of_product, all_digits;

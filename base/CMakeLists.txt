@@ -5,6 +5,7 @@ project(base)
 # .h files (headers)
 set(BASE_HXX
   common.h
+  digit_manipulation.h
   number_theory.h
   task.h
 )
@@ -12,6 +13,7 @@ set(BASE_HXX
 # .cpp non-test files
 set(BASE_CXX
   common.cpp
+  digit_manipulation.cpp
   number_theory.cpp
   task.cpp
 )
@@ -19,6 +21,7 @@ set(BASE_CXX
 # *_test.cpp files
 set(BASE_TESTS
   common_test.cpp
+  digit_manipulation_test.cpp
   number_theory_test.cpp
 )
 
