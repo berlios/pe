@@ -78,3 +78,13 @@ mpz_class DeleteLastDigit(const mpz_class &num) {
   return num / 10;
 }
 
+bool Is1To9Pandigital(const mpz_class &num) {
+  if (num.get_str().size() != 9) {
+    return false;
+  }
+
+  std::string str = num.get_str();
+  std::sort(str.begin(), str.end());
+
+  return str == "123456789";
+}

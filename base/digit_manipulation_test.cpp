@@ -52,5 +52,12 @@ TEST(DigitManipulation, DeleteFirstAndLastDigits) {
 
   EXPECT_EQ(5678, DeleteFirstDigit(45678));
   EXPECT_EQ(-5678, DeleteFirstDigit(-45678));
+}
 
+TEST(DigitManipulation, Pandigital) {
+  EXPECT_TRUE(Is1To9Pandigital(123456789));
+  EXPECT_TRUE(Is1To9Pandigital(987654321));
+  EXPECT_TRUE(Is1To9Pandigital(657491832));
+  EXPECT_FALSE(Is1To9Pandigital(1234567890));
+  EXPECT_FALSE(Is1To9Pandigital(1123456789));
 }
