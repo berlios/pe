@@ -6,6 +6,44 @@ mpz_class SumOfAllDivisors(const mpz_class &number);
 mpz_class SumOfProperDivisors(const mpz_class &number);
 uint LengthOfRepeatingCycle(const mpq_class &fraction);
 
+namespace {
+template<class T>
+struct GCDHelper {
+  static T GCD(const T &a, const T &b) {
+    using std::max;
+    using std::min;
+
+    T maximum = max(a, b);
+    T minimum = min(a, b);
+
+    T remainder = maximum % minimum;
+
+    while (remainder != 0) {
+      maximum = minimum;
+      minimum = remainder;
+      remainder = maximum % minimum;
+    }
+
+    return minimum;
+  }
+};
+
+template <>
+struct GCDHelper<mpz_class> {
+  static mpz_class GCD(const mpz_class &a, const mpz_class &b) {
+    mpz_class ret;
+    mpz_gcd(ret.get_mpz_t(), a.get_mpz_t(), b.get_mpz_t());
+    return ret;
+  }
+};
+
+}
+
+template<class T>
+inline T GCD(const T &a, const T &b) {
+  return GCDHelper<T>::GCD(a, b);
+}
+
 // Class that represents quadratic polynomial over the field represented by
 // the type T. It can be created with either all coefficients specified or none,
 // in which case it's created with zero coefficients.

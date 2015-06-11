@@ -30,6 +30,13 @@ TEST(LengthOfRepeatingCycle, BasicTest) {
   EXPECT_EQ(16, LengthOfRepeatingCycle(mpq_class(1, 17)));
 }
 
+TEST(GDC, BasicTest) {
+  EXPECT_EQ(6, GCD(24, 18));
+  EXPECT_EQ(1, GCD(24, 1234567891));
+  EXPECT_EQ(3, GCD(3, 24));
+  EXPECT_EQ(2, GCD(mpz_class(24), mpz_class(50)));
+}
+
 TEST(Quadratic, BasicTest) {
   Quadratic<int> f;
   EXPECT_EQ(0, f(0));
