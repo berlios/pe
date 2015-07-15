@@ -64,4 +64,6 @@ TEST(DigitManipulation, Pandigital) {
   EXPECT_TRUE(Is1To9Pandigital(657491832));
   EXPECT_FALSE(Is1To9Pandigital(1234567890));
   EXPECT_FALSE(Is1To9Pandigital(1123456789));
+
+  EXPECT_TRUE(Is1ToNPandigital(2143));
 }

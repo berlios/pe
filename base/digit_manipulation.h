@@ -16,6 +16,7 @@ mpz_class ReverseInBase(const mpz_class &num, uint base);
 mpz_class Reverse(const mpz_class &num);
 mpz_class DeleteFirstDigit(const mpz_class &num);
 mpz_class DeleteLastDigit(const mpz_class &num);
+bool Is1ToNPandigital(const mpz_class &num);
 bool Is1To9Pandigital(const mpz_class &num);
 
 #endif  // BASE_DIGIT_MANIPULATION_H_
