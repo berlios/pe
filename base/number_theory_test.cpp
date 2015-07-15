@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-TEST(Task21, SumOfDivisors) {
+TEST(NumberTheory, SumOfDivisors) {
   mpz_class a = 8;
   EXPECT_EQ(15, SumOfAllDivisors(a));
   EXPECT_EQ(7, SumOfProperDivisors(a));
@@ -16,12 +16,12 @@ TEST(Task21, SumOfDivisors) {
   EXPECT_EQ(1, SumOfProperDivisors(a));
 }
 
-TEST(Task21, Numbers220And284AreAmicable) {
+TEST(NumberTheory, Numbers220And284AreAmicable) {
   EXPECT_EQ(284, SumOfProperDivisors(220));
   EXPECT_EQ(220, SumOfProperDivisors(284));
 }
 
-TEST(LengthOfRepeatingCycle, BasicTest) {
+TEST(NumberTheory, LengthOfRepeatingCycle) {
   EXPECT_EQ(0, LengthOfRepeatingCycle(mpq_class(1, 2)));
   EXPECT_EQ(1, LengthOfRepeatingCycle(mpq_class(1, 3)));
   EXPECT_EQ(0, LengthOfRepeatingCycle(mpq_class(7, 14)));
@@ -30,14 +30,25 @@ TEST(LengthOfRepeatingCycle, BasicTest) {
   EXPECT_EQ(16, LengthOfRepeatingCycle(mpq_class(1, 17)));
 }
 
-TEST(GDC, BasicTest) {
+TEST(NumberTheory, TriangleNumbers) {
+  EXPECT_EQ(1, NthTriangleNumber(1));
+  EXPECT_EQ(10, NthTriangleNumber(4));
+  EXPECT_EQ(55, NthTriangleNumber(10));
+
+  EXPECT_TRUE(IsTriangleNumber(45));
+  EXPECT_TRUE(IsTriangleNumber(55));
+  EXPECT_FALSE(IsTriangleNumber(54));
+  EXPECT_FALSE(IsTriangleNumber(65));
+}
+
+TEST(NumberTheory, GDC) {
   EXPECT_EQ(6, GCD(24, 18));
   EXPECT_EQ(1, GCD(24, 1234567891));
   EXPECT_EQ(3, GCD(3, 24));
   EXPECT_EQ(2, GCD(mpz_class(24), mpz_class(50)));
 }
 
-TEST(Quadratic, BasicTest) {
+TEST(NumberTheory, Quadratic) {
   Quadratic<int> f;
   EXPECT_EQ(0, f(0));
   EXPECT_EQ(0, f(1));

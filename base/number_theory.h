@@ -5,6 +5,8 @@ std::map<mpz_class, uint> Factorize(const mpz_class &number);
 mpz_class SumOfAllDivisors(const mpz_class &number);
 mpz_class SumOfProperDivisors(const mpz_class &number);
 uint LengthOfRepeatingCycle(const mpq_class &fraction);
+mpz_class NthTriangleNumber(uint n);
+bool IsTriangleNumber(const mpz_class &num);
 
 namespace {
 template<class T>

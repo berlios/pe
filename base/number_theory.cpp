@@ -77,3 +77,21 @@ uint LengthOfRepeatingCycle(const mpq_class &fraction) {
   }
 }
 
+mpz_class NthTriangleNumber(uint n) {
+  mpz_class result{n};
+
+  result *= n;
+  result += n;
+
+  // We know that n*n + n is divisible by 2 so mpz_divexact_ui(...) is the most
+  // suitable function in this case.
+  mpz_divexact_ui(result.get_mpz_t(), result.get_mpz_t(), 2);
+
+  return result;
+}
+
+bool IsTriangleNumber(const mpz_class &num) {
+  mpz_class sqrt, doubled_num{num * 2};
+  mpz_sqrt(sqrt.get_mpz_t(), doubled_num.get_mpz_t());
+  return doubled_num == sqrt*(sqrt + 1);
+}
