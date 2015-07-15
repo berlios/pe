@@ -11,6 +11,11 @@ DigitSet GetDigitSet(uint num) {
   return ret;
 }
 
+uint NthDigit(const mpz_class &num, uint n) {
+  return num.get_str()[n - 1] - '0';
+}
+
+
 uint DigitCount(const mpz_class &num) {
   uint k = 0;
   mpz_class power_of_ten = 1;

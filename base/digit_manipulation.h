@@ -8,6 +8,7 @@ typedef std::set<int> DigitSet;
 
 DigitSet GetDigitSet(uint num);
 
+uint NthDigit(const mpz_class &num, uint n);
 uint DigitCount(const mpz_class &num);
 uint DigitSum(const mpz_class &number);
 mpz_class PlaceLastDigitInFront(const mpz_class &num);

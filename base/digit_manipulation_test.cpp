@@ -13,6 +13,10 @@ TEST(DigitManipulation, DigitSet) {
   EXPECT_EQ(4, DigitCount(4067));
 }
 
+TEST(DigitManipulation, NthDigit) {
+  EXPECT_EQ(5, NthDigit(145, 3));
+}
+
 TEST(DigitManipulation, DigitSum) {
   mpz_class a;
   a = "1234567890";
