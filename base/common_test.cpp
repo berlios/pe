@@ -8,6 +8,10 @@
 using std::string;
 using std::vector;
 
+TEST(BaseCommon, AlphabeticalValue) {
+  EXPECT_EQ(53, AlphabeticalValue("COLIN"));
+}
+
 TEST(BaseCommon, ToString) {
   EXPECT_EQ("0", ToString(0));
   EXPECT_EQ("42", ToString(42));

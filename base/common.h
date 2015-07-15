@@ -10,6 +10,7 @@
   TypeName(const TypeName&);               \
   void operator=(const TypeName&)
 
+uint AlphabeticalValue(const std::string &word);
 std::string ToString(int n);
 void DeleteLeadingChars(char c, std::string *str);
 

@@ -1,28 +1,15 @@
 #include <algorithm>
 #include <string>
+#include <vector>
 
 #include "base/common.h"
 #include "base/task.h"
 #include "gtest/gtest.h"
 
-uint AlphabeticalValue(const std::string &word) {
-  uint score = 0;
-  for (size_t i = 0; i < word.size(); ++i) {
-    score += word[i] - 'A' + 1;
-  }
-
-  return score;
-}
-
 TEST(Task22, Colin) {
-  std::string contents;
-  ReadFileIntoString("../src/22_names.txt", &contents);
-
-  auto words = Split(contents, ',');
-
-  for (auto &word : words) {
-    word = word.substr(1, word.size() - 2);
-  }
+  std::vector<std::string> words{
+#include "src/022_names.txt"
+  };
 
   std::sort(words.begin(), words.end());
   EXPECT_EQ("COLIN", words[938 - 1]);
@@ -30,14 +17,9 @@ TEST(Task22, Colin) {
 }
 
 TASK(22) {
-  std::string contents;
-  ReadFileIntoString("../src/22_names.txt", &contents);
-
-  auto words = Split(contents, ',');
-
-  for (auto &word : words) {
-    word = word.substr(1, word.size() - 2);
-  }
+  std::vector<std::string> words{
+#include "src/022_names.txt"
+  };
 
   std::sort(words.begin(), words.end());
 

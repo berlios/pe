@@ -4,6 +4,16 @@
 #include <fstream>
 #include <sstream>
 
+uint AlphabeticalValue(const std::string &word) {
+  uint score = 0;
+  for (size_t i = 0; i < word.size(); ++i) {
+    score += word[i] - 'A' + 1;
+  }
+
+  return score;
+}
+
+
 std::string ToString(int n) {
   std::stringstream s;
   s << n;
