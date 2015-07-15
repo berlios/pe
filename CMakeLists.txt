@@ -10,8 +10,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Werror")
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 find_package(GMPXX REQUIRED)
 
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
-
 include_directories(
   ${CMAKE_SOURCE_DIR}/external/gtest/include
   ${CMAKE_SOURCE_DIR}/external/gmock/include
@@ -24,9 +22,3 @@ add_subdirectory(external/gmock)
 
 add_subdirectory(base)
 add_subdirectory(src)
-
-add_library(gtesting gtest_main_custom.cpp)
-target_link_libraries(gtesting gtest gmock)
-
-add_library(tasks task_main.cpp)
-target_link_libraries(tasks base)

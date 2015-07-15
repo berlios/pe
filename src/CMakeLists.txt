@@ -54,8 +54,8 @@ set(SRC_CXX
 set(SRC_TESTS
 )
 
-add_executable(out ${SRC_CXX} ${SRC_HXX})
-target_link_libraries(out tasks gtest ${LIBGMPXX_LIBRARIES})
+add_executable(out task_main.cpp ${SRC_CXX} ${SRC_HXX})
+target_link_libraries(out base gtest ${LIBGMPXX_LIBRARIES})
 
 add_executable(src_tests ${SRC_CXX} ${SRC_HXX} ${SRC_TESTS})
-target_link_libraries(src_tests base gtesting ${LIBGMPXX_LIBRARIES})
+target_link_libraries(src_tests base gtest_main ${LIBGMPXX_LIBRARIES})

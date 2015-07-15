@@ -31,4 +31,4 @@ add_library(base ${BASE_CXX} ${BASE_HXX})
 target_link_libraries(base ${LIBGMPXX_LIBRARIES})
 
 add_executable(base_tests ${BASE_TESTS})
-target_link_libraries(base_tests base gtesting ${LIBGMPXX_LIBRARIES})
+target_link_libraries(base_tests base gtest_main ${LIBGMPXX_LIBRARIES})
