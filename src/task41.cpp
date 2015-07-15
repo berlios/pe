@@ -30,5 +30,5 @@ TASK(41) {
     }
   }
 
-  SetResult(last_pandigital_prime.get_str());
+  return last_pandigital_prime;
 }

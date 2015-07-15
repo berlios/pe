@@ -15,5 +15,5 @@ TASK(29) {
     }
   }
 
-  SetResult(ToString(sequence.size()));
+  return sequence.size();
 }

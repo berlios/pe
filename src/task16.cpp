@@ -16,5 +16,5 @@ TASK(16) {
     sum_of_digits += digits[i] - '0';
   }
 
-  SetResult(ToString(sum_of_digits));
+  return sum_of_digits;
 }

@@ -220,5 +220,5 @@ TASK(19) {
     }
   }
 
-  SetResult(ToString(r));
+  return r;
 }

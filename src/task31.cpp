@@ -35,5 +35,5 @@ TASK(31) {
     }
   }
 
-  SetResult(ToString(sum));
+  return sum;
 }

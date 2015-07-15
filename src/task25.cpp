@@ -10,8 +10,7 @@ TASK(25) {
     mpz_fib_ui(num.get_mpz_t(), i);
 
     if (num.get_str().size() >= 1000) {
-      SetResult(ToString(i));
-      return;
+      return i;
     }
   }
 }

@@ -58,5 +58,5 @@ TASK(33) {
   }
 
   tmp.canonicalize();
-  SetResult(tmp.get_den().get_str());
+  return tmp.get_den();
 }

@@ -142,5 +142,5 @@ TEST(Task11, GetVectorGridFromString) {
 }
 
 TASK(11) {
-  SetResult(MaxProductOfFourInRow());
+  return MaxProductOfFourInRow();
 }

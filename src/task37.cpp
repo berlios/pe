@@ -40,5 +40,5 @@ TASK(37) {
     result += num;
   }
 
-  SetResult(result.get_str());
+  return result;
 }

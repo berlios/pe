@@ -28,5 +28,5 @@ TASK(22) {
     total_score += AlphabeticalValue(words[i]) * (i + 1);
   }
 
-  SetResult(ToString(total_score));
+  return total_score;
 }

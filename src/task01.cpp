@@ -18,5 +18,5 @@ TEST(Task1, CapEquals10) {
 }
 
 TASK(1) {
-  SetResult(ToString(main_func(1000)));
+  return main_func(1000);
 }

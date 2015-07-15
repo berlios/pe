@@ -232,5 +232,5 @@ TASK(17) {
     result += number_in_words;
   }
 
-  SetResult(ToString(result.size()));
+  return result.size();
 }

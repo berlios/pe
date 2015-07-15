@@ -57,5 +57,5 @@ TASK(38) {
     }
   }
 
-  SetResult(max_number.get_str());
+  return max_number;
 }

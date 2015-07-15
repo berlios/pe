@@ -53,5 +53,5 @@ TASK(14) {
       result = i;
     }
   }
-  SetResult(ToString(result));
+  return result;
 }

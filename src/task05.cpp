@@ -21,5 +21,5 @@ TEST(Task5, LCDOfRangeFrom1To10) {
 }
 
 TASK(5) {
-  SetResult(LCDOfRangeFrom1To(20));
+  return LCDOfRangeFrom1To(20);
 }

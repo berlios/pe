@@ -33,5 +33,5 @@ TASK(39) {
     }
   }
 
-  SetResult(ToString(ans));
+  return ans;
 }

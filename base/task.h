@@ -3,6 +3,7 @@
 #ifndef BASE_TASK_H_
 #define BASE_TASK_H_
 
+#include <gmpxx.h>
 #include <string>
 #include <vector>
 
@@ -12,10 +13,39 @@ namespace euler {
 
 class Task {
  public:
+  class Result {
+   public:
+    Result() { }
+    Result(const std::string &str) : result_string_(str) { }
+    Result(std::string &&str) : result_string_(std::move(str)) { }
+    Result(const mpz_class &num) : result_string_(num.get_str()) { }
+
+    Result(signed char c) : result_string_(1, c) { }
+    Result(unsigned char c) : result_string_(1, c) { }
+
+#define IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(ClassName, Type) \
+  ClassName(Type n) : result_string_(std::to_string(n)) { }
+
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, unsigned int)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, signed int)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, unsigned long int)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, signed long int)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, unsigned long long int)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, signed long long int)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, float)
+    IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER(Result, double)
+
+#undef IMPLICIT_CONSTRUCTOR_FROM_A_NUMBER
+
+    std::string ToString() const { return result_string_; }
+   private:
+    std::string result_string_;
+  };
+
   virtual ~Task();
-  void SetResult(const std::string &str);
-  const std::string& result();
-  std::string CloneResult();
+//   void SetResult(const std::string &str);
+  const Result& result();
+  std::string GetResultString();
 
  protected:
   Task();
@@ -25,9 +55,9 @@ class Task {
 
   // Rather than just leaving TaskBody() method to run a task,  maybe it would
   // be better to create separate Run() method?
-  virtual void TaskBody() = 0;
+  virtual Result TaskBody() = 0;
 
-  std::string result_;
+  Result result_;
   DISALLOW_COPY_AND_ASSIGN(Task);
 };
 
@@ -82,7 +112,8 @@ class OneClass {
   static OneClass* GetInstance();
   void Run(int task_num);
   void RunBiggestNumber();
-  const std::string& GetLastResult();
+  const std::string& GetLastResult() const;
+  int GetNumberOfLastTask() const;
 
  private:
   friend OneClassImpl* GetOneClassImpl();
@@ -103,6 +134,7 @@ class OneClassImpl {
   void AddTaskInfo(TaskInfo *task_info);
   void Run(int task_num);
   const std::string& GetLastResult() const;
+  int GetNumberOfLastTask() const;
   int GetMax();
 
  private:
@@ -130,7 +162,7 @@ class TASK_CLASS_NAME(Task, task_num) : public ::euler::Task {          \
  public:                                                                \
   TASK_CLASS_NAME(Task, task_num)() {}                                  \
  private:                                                               \
-  virtual void TaskBody();                                              \
+  virtual ::euler::Task::Result TaskBody();                                              \
   static ::euler::TaskInfo* const task_info_;                           \
 };                                                                      \
                                                                         \
@@ -139,6 +171,6 @@ class TASK_CLASS_NAME(Task, task_num) : public ::euler::Task {          \
     ::euler::MakeAndRegisterTaskInfo(                                   \
         task_num,                                                       \
         new ::euler::TaskFactoryImpl<TASK_CLASS_NAME(Task, task_num)>); \
-void TASK_CLASS_NAME(Task, task_num)::TaskBody()
+::euler::Task::Result TASK_CLASS_NAME(Task, task_num)::TaskBody()
 
 #endif  // BASE_TASK_H_

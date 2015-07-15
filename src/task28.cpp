@@ -13,5 +13,5 @@ TASK(28) {
     sum += 4*(2*i + 1)*(2*i + 1) - 12*i;
   }
 
-  SetResult(ToString(sum));
+  return sum;
 }

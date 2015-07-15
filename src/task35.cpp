@@ -24,5 +24,5 @@ TASK(35) {
     mpz_nextprime(prime.get_mpz_t(), prime.get_mpz_t());
   }
 
-  SetResult(ToString(circular_primes_count));
+  return circular_primes_count;
 }

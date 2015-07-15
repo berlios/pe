@@ -10,5 +10,5 @@ TASK(20) {
     factorial *= i;
   }
 
-  SetResult(ToString(DigitSum(factorial)));
+  return DigitSum(factorial);
 }

@@ -24,5 +24,5 @@ TEST(Task3, LargestPrimeFactorOf13195) {
 }
 
 TASK(3) {
-  SetResult(LargestPrimeFactor("600851475143"));
+  return LargestPrimeFactor("600851475143");
 }

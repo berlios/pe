@@ -21,5 +21,5 @@ TEST(Task10, SumOfPrimesBelow10) {
 }
 
 TASK(10) {
-  SetResult(SumOfPrimesBelow(2*1000*1000));
+  return SumOfPrimesBelow(2*1000*1000);
 }

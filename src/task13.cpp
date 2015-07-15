@@ -113,5 +113,5 @@ TASK(13) {
      result += mpz_class(list.substr(i*51, 50));
   }
 
-  SetResult(result.get_str().substr(0, 10));
+  return result.get_str().substr(0, 10);
 }

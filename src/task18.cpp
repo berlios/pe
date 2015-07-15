@@ -107,5 +107,5 @@ TASK(18) {
   vector<vector<int>> graph;
   ParseGraph(data, &graph);
 
-  SetResult(ToString(FindMaxSum(graph)));
+  return FindMaxSum(graph);
 }

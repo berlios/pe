@@ -35,5 +35,5 @@ static int main_func() {
 }
 
 TASK(2) {
-  SetResult(ToString(main_func()));
+  return main_func();
 }

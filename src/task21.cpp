@@ -21,5 +21,5 @@ TASK(21) {
     }
   }
 
-  SetResult(ToString(sum));
+  return sum;
 }

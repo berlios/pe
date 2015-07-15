@@ -15,5 +15,5 @@ TASK(26) {
     }
   }
 
-  SetResult(ToString(result));
+  return result;
 }

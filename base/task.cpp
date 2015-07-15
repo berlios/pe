@@ -8,16 +8,16 @@ namespace euler {
 
 Task::~Task() {}
 
-void Task::SetResult(const std::string &str) {
-  result_ = str;
-}
+// void Task::SetResult(const std::string &str) {
+//   result_ = str;
+// }
 
-const std::string& Task::result() {
+const Task::Result& Task::result() {
   return result_;
 }
 
-std::string Task::CloneResult() {
-  return result_;
+std::string Task::GetResultString() {
+  return result_.ToString();
 }
 
 Task::Task() {}
@@ -47,8 +47,7 @@ TaskInfo::TaskInfo(int task_num, euler::TaskFactoryBase *factory)
 
 void TaskInfo::Run() {
   Task *task = factory_->CreateTask();
-  task->TaskBody();
-  result_ = task->CloneResult();
+  result_ = task->TaskBody().ToString();
   delete task;
 }
 
@@ -66,8 +65,12 @@ void OneClass::RunBiggestNumber() {
   Run(n);
 }
 
-const std::string &OneClass::GetLastResult() {
+const std::string &OneClass::GetLastResult() const {
   return impl_->GetLastResult();
+}
+
+int OneClass::GetNumberOfLastTask() const {
+  return impl_->GetNumberOfLastTask();
 }
 
 OneClass::OneClass() {
@@ -90,10 +93,9 @@ const std::string& OneClassImpl::GetLastResult() const {
   return tasks_[index_of_last_solved_task_]->result_;
 }
 
-// bool Cmp(std::vector<TaskInfo*>::iterator first,
-//          std::vector<TaskInfo*>::iterator second) {
-//   return (*first)->task_num() < (*second)->task_num();
-// }
+int OneClassImpl::GetNumberOfLastTask() const {
+  return tasks_[index_of_last_solved_task_]->task_num_;
+}
 
 bool Cmp(TaskInfo *first, TaskInfo *second) {
   return first->task_num() < second->task_num();

@@ -38,5 +38,5 @@ TASK(23) {
     }
   }
 
-  SetResult(ToString(res));
+  return res;
 }

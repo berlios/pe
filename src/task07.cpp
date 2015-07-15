@@ -20,5 +20,5 @@ TEST(Task7, PrimeNumber6) {
 }
 
 TASK(7) {
-  SetResult(NthPrime(10001));
+  return NthPrime(10001);
 }

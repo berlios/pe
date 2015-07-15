@@ -35,5 +35,5 @@ TASK(27) {
   }
 
   mpz_class answer = res.b()*res.c();
-  SetResult(answer.get_str());
+  return answer;
 }

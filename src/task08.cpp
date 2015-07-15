@@ -37,5 +37,5 @@ TASK(8) {
     }
     prod = max(prod, pr);
   }
-  SetResult(ToString(prod));
+  return prod;
 }

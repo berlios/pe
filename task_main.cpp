@@ -9,6 +9,7 @@ int main() {
   // Maybe it would be better to hide it in some function.
   // ::euler::OneClass::GetInstance()->Run(task_num);
   ::euler::OneClass::GetInstance()->RunBiggestNumber();
-  printf("The answer to task #biggest: %s\n",
+  printf("The answer to task #%d: %s\n",
+         ::euler::OneClass::GetInstance()->GetNumberOfLastTask(),
          ::euler::OneClass::GetInstance()->GetLastResult().c_str());
 }

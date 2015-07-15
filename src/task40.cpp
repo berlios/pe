@@ -31,5 +31,5 @@ TASK(40) {
     prod *= ChampernowneDigit(i);
   }
 
-  SetResult(ToString(prod));
+  return prod;
 }

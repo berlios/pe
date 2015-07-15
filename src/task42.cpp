@@ -18,5 +18,5 @@ TASK(42) {
     }
   }
 
-  SetResult(ToString(count));
+  return count;
 }

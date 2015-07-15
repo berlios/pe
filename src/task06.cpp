@@ -19,5 +19,5 @@ TEST(Task6, SquareDifferenceFor10) {
 }
 
 TASK(6) {
-  SetResult(SquareDifference(100));
+  return SquareDifference(100);
 }

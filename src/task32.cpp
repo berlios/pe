@@ -27,5 +27,5 @@ TASK(32) {
   for (auto element : results) {
     sum += element;
   }
-  SetResult(ToString(sum));
+  return sum;
 }

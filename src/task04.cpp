@@ -54,5 +54,5 @@ TEST(Task4, IsPalindrome) {
 }
 
 TASK(4) {
-  SetResult(LargestPalindrome(1000));
+  return LargestPalindrome(1000);
 }

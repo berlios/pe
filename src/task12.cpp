@@ -60,5 +60,5 @@ TASK(12) {
     prev = current;
   }
 
-  SetResult(result.get_str());
+  return result.get_str();
 }
