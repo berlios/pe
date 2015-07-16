@@ -20,7 +20,7 @@ int ChampernowneDigit(uint n) {
   return NthDigit(s, (n - 1) % length + 1);
 }
 
-TEST(ChampernowneDigit, A12thDigit) {
+TEST(Task40, ChampernowneDigit) {
   EXPECT_EQ(1, ChampernowneDigit(12));
   EXPECT_EQ(2, ChampernowneDigit(15));
 }

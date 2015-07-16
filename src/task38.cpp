@@ -51,7 +51,7 @@ TASK(38) {
       std::vector<uint> products = MultiplyEachElement(numbers_1_to_n, i);
       concatenated_product = ConcatenateNumbersAsStrings(products);
 
-      if (Is1To9Pandigital(mpz_class(concatenated_product))) {
+      if (Is1To9Pandigital(std::stoi(concatenated_product))) {
         max_number = std::max(max_number, mpz_class(concatenated_product));
       }
     }

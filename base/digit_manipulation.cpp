@@ -1,5 +1,7 @@
 #include "base/digit_manipulation.h"
 
+#include "base/common.h"
+
 DigitSet GetDigitSet(uint num) {
   DigitSet ret;
 
@@ -83,23 +85,30 @@ mpz_class DeleteLastDigit(const mpz_class &num) {
   return num / 10;
 }
 
-bool Is1ToNPandigital(const mpz_class &num) {
-  std::string str = num.get_str();
-  int n = str.size();
-  if (n >= 10) {
+bool Is1ToNPandigital(int64_t num) {
+  return IsKToNPandigital(num, 1, std::to_string(num).size());
+}
+
+bool Is1To9Pandigital(int64_t num) {
+  return IsKToNPandigital(num, 1, 9);
+}
+
+bool Is0To9Pandigital(int64_t num) {
+  return IsKToNPandigital(num, 0, 9);
+}
+
+bool IsKToNPandigital(int64_t num, int k, int n) {
+  if ((k < 0 || k > 9) || (n < 0 || n > 9) || k > n) {
     return false;
   }
 
   std::string expected_string;
-  for (int i = 1; i <= n; ++i) {
+  for (int i = k; i <= n; ++i) {
     expected_string.push_back('0' + i);
   }
 
-  std::sort(str.begin(), str.end());
+  std::string num_str = std::to_string(num);
+  std::sort(num_str.begin(), num_str.end());
 
-  return str == expected_string;
-}
-
-bool Is1To9Pandigital(const mpz_class &num) {
-  return num.get_str().size() == 9 && Is1ToNPandigital(num);
-}
+  return expected_string == num_str;
+};
