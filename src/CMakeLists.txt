@@ -49,6 +49,7 @@ set(SRC_CXX
   task41.cpp
   task42.cpp
   task43.cpp
+  task44.cpp
 )
 
 # *_test.cpp files

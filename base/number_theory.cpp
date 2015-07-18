@@ -95,3 +95,39 @@ bool IsTriangleNumber(const mpz_class &num) {
   mpz_sqrt(sqrt.get_mpz_t(), doubled_num.get_mpz_t());
   return doubled_num == sqrt*(sqrt + 1);
 }
+
+mpz_class NthPentagonalNumber(uint n) {
+  mpz_class result{n};
+
+  result *= 3;  // result == 3n
+  result -= 1;  // result == 3n - 1
+  result *= n;  // result == n(3n - 1)
+
+  // We know that n*(3n - 1) is divisible by 2 so mpz_divexact_ui(...) is the most
+  // suitable function in this case.
+  mpz_divexact_ui(result.get_mpz_t(), result.get_mpz_t(), 2);
+
+  return result;
+}
+
+bool IsPentagonalNumber(const mpz_class &num) {
+  // Since expressions x = n*(3n - 2)/2 and n = (sqrt(24x + 1) + 1)/6 are
+  // equivalent it suffices to check 24x + 1 is a perfect square and
+  // sqrt(24x + 1) has residue 5 modulo 6.
+  mpz_class n_times_24_plus_1{num*24 + 1};
+
+  // mpz_perfect_square_p returns 0 if the number is definitely not a square
+  // and non-zero if it's probably a square so we must check for that later too.
+  if (mpz_perfect_square_p(n_times_24_plus_1.get_mpz_t()) == 0) {
+    return false;
+  }
+
+  mpz_class sqrt;
+  mpz_sqrt(sqrt.get_mpz_t(), n_times_24_plus_1.get_mpz_t());
+
+  if (sqrt*sqrt == n_times_24_plus_1 && sqrt % 6 == 5) {
+    return true;
+  } else {
+    return false;
+  }
+}

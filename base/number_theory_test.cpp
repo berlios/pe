@@ -41,6 +41,21 @@ TEST(NumberTheory, TriangleNumbers) {
   EXPECT_FALSE(IsTriangleNumber(65));
 }
 
+TEST(NumberTheory, PentagonalNumbers) {
+  EXPECT_EQ(1, NthPentagonalNumber(1));
+  EXPECT_EQ(22, NthPentagonalNumber(4));
+  EXPECT_EQ(117, NthPentagonalNumber(9));
+
+  EXPECT_TRUE(IsPentagonalNumber(35));
+  EXPECT_TRUE(IsPentagonalNumber(145));
+  EXPECT_TRUE(IsPentagonalNumber(1));
+  EXPECT_FALSE(IsPentagonalNumber(2));
+
+  EXPECT_FALSE(IsPentagonalNumber(50));
+  EXPECT_TRUE(IsPentagonalNumber(51));
+  EXPECT_FALSE(IsPentagonalNumber(52));
+}
+
 TEST(NumberTheory, GDC) {
   EXPECT_EQ(6, GCD(24, 18));
   EXPECT_EQ(1, GCD(24, 1234567891));

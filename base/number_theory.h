@@ -5,8 +5,14 @@ std::map<mpz_class, uint> Factorize(const mpz_class &number);
 mpz_class SumOfAllDivisors(const mpz_class &number);
 mpz_class SumOfProperDivisors(const mpz_class &number);
 uint LengthOfRepeatingCycle(const mpq_class &fraction);
+
+// Triangle numbers are of the form i*(i + 1)/2
 mpz_class NthTriangleNumber(uint n);
 bool IsTriangleNumber(const mpz_class &num);
+
+// Pentagonal numbers are of the form i*(3i - 1)/2
+mpz_class NthPentagonalNumber(uint n);
+bool IsPentagonalNumber(const mpz_class &num);
 
 namespace {
 template<class T>
