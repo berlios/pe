@@ -2,6 +2,28 @@
 
 #include "gtest/gtest.h"
 
+TEST(NumberTheory, Sieve) {
+  std::vector<int> prime_list{2, 3, 5, 7, 11, 13, 17, 19, 23};
+  EXPECT_NE(prime_list, Sieve(23));
+  EXPECT_EQ(prime_list, Sieve(24));
+
+  EXPECT_EQ(prime_list, Sieve(29));
+  EXPECT_NE(prime_list, Sieve(30));
+}
+
+TEST(NumberTheory, NumberOfPrimeDivisors) {
+  EXPECT_EQ(1, NumberOfPrimeDivisors(2));
+  EXPECT_EQ(1, NumberOfPrimeDivisors(4));
+  EXPECT_EQ(1, NumberOfPrimeDivisors(16));
+
+  EXPECT_EQ(2, NumberOfPrimeDivisors(15));
+  EXPECT_EQ(2, NumberOfPrimeDivisors(45));
+
+  EXPECT_EQ(3, NumberOfPrimeDivisors(644));
+  EXPECT_EQ(3, NumberOfPrimeDivisors(645));
+  EXPECT_EQ(3, NumberOfPrimeDivisors(646));
+}
+
 TEST(NumberTheory, SumOfDivisors) {
   mpz_class a = 8;
   EXPECT_EQ(15, SumOfAllDivisors(a));

@@ -1,27 +1,63 @@
 #include "base/number_theory.h"
 
+std::vector<int> Sieve(int upper_limit) {
+  std::vector<bool> bitmap(upper_limit, true);
+  std::vector<int> result;
+
+  for (int i = 2; i < upper_limit/2; ++i) {
+    if (bitmap[i]) {
+      result.push_back(i);
+      for (int64_t j = (int64_t)i*i; j < upper_limit; j += i) {
+        bitmap[j] = false;
+      }
+    }
+  }
+
+  for (int i = upper_limit/2; i < upper_limit; ++i) {
+    if (bitmap[i]) {
+      result.push_back(i);
+    }
+  }
+
+  return result;
+}
+
 std::map<mpz_class, uint> Factorize(const mpz_class &number) {
   mpz_class num = number;
   std::map<mpz_class, uint> factorization;
 
-  mpz_class i = 2;
+  mpz_class prime = 2;
   while (num != 1) {
     uint deg = 0;
-    mpz_class r = num % i;
-    while (r == 0) {
-      deg++;
-      num = num / i;
-      r = num % i;
+    if (mpz_divisible_p(num.get_mpz_t(), prime.get_mpz_t()) != 0) {
+      deg = mpz_remove(num.get_mpz_t(), num.get_mpz_t(), prime.get_mpz_t());
     }
 
     if (deg > 0) {
-      factorization[i] = deg;
+      factorization[prime] = deg;
     }
 
-    mpz_nextprime(i.get_mpz_t(), i.get_mpz_t());
+    mpz_nextprime(prime.get_mpz_t(), prime.get_mpz_t());
   }
 
   return factorization;
+}
+
+int NumberOfPrimeDivisors(const mpz_class &number) {
+  mpz_class num = number;
+  int result = 0;
+
+  mpz_class prime = 2;
+  while (num != 1) {
+    if (mpz_divisible_p(num.get_mpz_t(), prime.get_mpz_t()) != 0) {
+      result++;
+      mpz_remove(num.get_mpz_t(), num.get_mpz_t(), prime.get_mpz_t());
+    }
+
+    mpz_nextprime(prime.get_mpz_t(), prime.get_mpz_t());
+  }
+
+  return result;
 }
 
 mpz_class SumOfAllDivisors(const mpz_class &number) {
