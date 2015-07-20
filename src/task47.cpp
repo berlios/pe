@@ -22,7 +22,6 @@ int NumberOfPrimeDivisors(int n) {
 }
 
 TASK(47) {
-
   int count = 0;
   for (int i = 2;; ++i) {
     if (NumberOfPrimeDivisors(i) == 4) {
