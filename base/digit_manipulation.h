@@ -4,9 +4,11 @@
 #include <gmpxx.h>
 #include <set>
 
-typedef std::set<int> DigitSet;
+using DigitSet = std::set<int>;
+using DigitMultiSet = std::multiset<int>;
 
-DigitSet GetDigitSet(uint num);
+DigitSet GetDigitSet(uint64_t num);
+DigitMultiSet GetDigitMultiSet(uint64_t num);
 
 uint NthDigit(const mpz_class &num, uint n);
 uint DigitCount(const mpz_class &num);

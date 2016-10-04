@@ -2,8 +2,19 @@
 
 #include "base/common.h"
 
-DigitSet GetDigitSet(uint num) {
+DigitSet GetDigitSet(uint64_t num) {
   DigitSet ret;
+
+  while (num > 0) {
+    ret.insert(num % 10);
+    num = num / 10;
+  }
+
+  return ret;
+}
+
+DigitMultiSet GetDigitMultiSet(uint64_t num) {
+  DigitMultiSet ret;
 
   while (num > 0) {
     ret.insert(num % 10);

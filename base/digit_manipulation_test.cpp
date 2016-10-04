@@ -13,6 +13,15 @@ TEST(DigitManipulation, DigitSet) {
   EXPECT_EQ(4, DigitCount(4067));
 }
 
+TEST(DigitManipulation, GetDigitMultiSet) {
+  DigitMultiSet digits = GetDigitMultiSet(12344);
+  ASSERT_EQ(5, digits.size());
+  EXPECT_EQ(1, digits.count(1));
+  EXPECT_EQ(1, digits.count(2));
+  EXPECT_EQ(1, digits.count(3));
+  EXPECT_EQ(2, digits.count(4));
+}
+
 TEST(DigitManipulation, NthDigit) {
   EXPECT_EQ(5, NthDigit(145, 3));
 }
