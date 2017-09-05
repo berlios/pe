@@ -12,8 +12,8 @@ TASK(49) {
   prime_list.erase(new_end, prime_list.end());
 
   std::string result;
-  for (int i = 0; i < prime_list.size(); ++i) {
-    for (int j = i + 2; j < prime_list.size(); ++j) {
+  for (size_t i = 0; i < prime_list.size(); ++i) {
+    for (size_t j = i + 2; j < prime_list.size(); ++j) {
       int lowest_prime = prime_list[i];
       int highest_prime = prime_list[j];
       int mid_prime = (lowest_prime + highest_prime) / 2;

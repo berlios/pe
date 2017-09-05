@@ -9,7 +9,7 @@ TASK(35) {
   while (prime < 1000*1000) {
     mpz_class copy = prime;
     bool is_circular = true;
-    for (int i = 0; i < mpz_sizeinbase(prime.get_mpz_t(), 10); ++i) {
+    for (size_t i = 0; i < mpz_sizeinbase(prime.get_mpz_t(), 10); ++i) {
       if (mpz_probab_prime_p(copy.get_mpz_t(), 20) == 0) {
         is_circular = false;
         break;

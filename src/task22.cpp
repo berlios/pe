@@ -13,7 +13,7 @@ TEST(Task22, Colin) {
 
   std::sort(words.begin(), words.end());
   EXPECT_EQ("COLIN", words[938 - 1]);
-  EXPECT_EQ(53, AlphabeticalValue(words[938 - 1]));
+  EXPECT_EQ(53u, AlphabeticalValue(words[938 - 1]));
 }
 
 TASK(22) {

@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 
 TEST(PythagoreanTriple, BasicTest) {
-  using PPT = PrimitivePythagoreanTriple<uint>;
+  using PPT = PrimitivePythagoreanTriple<int>;
   PPT triple;
   EXPECT_FALSE(triple.IsValid());
   EXPECT_EQ(PPT(0, 0, 0), triple);
@@ -37,7 +37,7 @@ TEST(PythagoreanTriple, BasicTest) {
 }
 
 TEST(PythagoreanTriple, PriceTreeRepresentation) {
-  using PPT = PrimitivePythagoreanTriple<uint>;
+  using PPT = PrimitivePythagoreanTriple<int>;
   PPT t(8, 15, 17);
 
   EXPECT_EQ(PPT(21, 20, 29), t.PriceTree().LeftChild());

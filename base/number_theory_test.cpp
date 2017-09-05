@@ -44,12 +44,12 @@ TEST(NumberTheory, Numbers220And284AreAmicable) {
 }
 
 TEST(NumberTheory, LengthOfRepeatingCycle) {
-  EXPECT_EQ(0, LengthOfRepeatingCycle(mpq_class(1, 2)));
-  EXPECT_EQ(1, LengthOfRepeatingCycle(mpq_class(1, 3)));
-  EXPECT_EQ(0, LengthOfRepeatingCycle(mpq_class(7, 14)));
-  EXPECT_EQ(6, LengthOfRepeatingCycle(mpq_class(1, 7)));
-  EXPECT_EQ(6, LengthOfRepeatingCycle(mpq_class(21, 49)));
-  EXPECT_EQ(16, LengthOfRepeatingCycle(mpq_class(1, 17)));
+  EXPECT_EQ(0u, LengthOfRepeatingCycle(mpq_class(1, 2)));
+  EXPECT_EQ(1u, LengthOfRepeatingCycle(mpq_class(1, 3)));
+  EXPECT_EQ(0u, LengthOfRepeatingCycle(mpq_class(7, 14)));
+  EXPECT_EQ(6u, LengthOfRepeatingCycle(mpq_class(1, 7)));
+  EXPECT_EQ(6u, LengthOfRepeatingCycle(mpq_class(21, 49)));
+  EXPECT_EQ(16u, LengthOfRepeatingCycle(mpq_class(1, 17)));
 }
 
 TEST(NumberTheory, TriangleNumbers) {

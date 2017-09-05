@@ -4,32 +4,32 @@
 
 TEST(DigitManipulation, DigitSet) {
   DigitSet digits = GetDigitSet(12344);
-  ASSERT_EQ(4, digits.size());
+  ASSERT_EQ(4u, digits.size());
   EXPECT_NE(digits.end(), digits.find(1));
   EXPECT_NE(digits.end(), digits.find(2));
   EXPECT_NE(digits.end(), digits.find(3));
   EXPECT_NE(digits.end(), digits.find(4));
 
-  EXPECT_EQ(4, DigitCount(4067));
+  EXPECT_EQ(4u, DigitCount(4067));
 }
 
 TEST(DigitManipulation, GetDigitMultiSet) {
   DigitMultiSet digits = GetDigitMultiSet(12344);
-  ASSERT_EQ(5, digits.size());
-  EXPECT_EQ(1, digits.count(1));
-  EXPECT_EQ(1, digits.count(2));
-  EXPECT_EQ(1, digits.count(3));
-  EXPECT_EQ(2, digits.count(4));
+  ASSERT_EQ(5u, digits.size());
+  EXPECT_EQ(1u, digits.count(1));
+  EXPECT_EQ(1u, digits.count(2));
+  EXPECT_EQ(1u, digits.count(3));
+  EXPECT_EQ(2u, digits.count(4));
 }
 
 TEST(DigitManipulation, NthDigit) {
-  EXPECT_EQ(5, NthDigit(145, 3));
+  EXPECT_EQ(5u, NthDigit(145, 3));
 }
 
 TEST(DigitManipulation, DigitSum) {
   mpz_class a;
   a = "1234567890";
-  EXPECT_EQ(45, DigitSum(a));
+  EXPECT_EQ(45u, DigitSum(a));
 }
 
 TEST(DigitManipulation, PlaceLastDigitInFront) {

@@ -107,7 +107,7 @@ class PokerHand {
     }
 
     // Payload sizes better be the same.
-    for (int i = 0; i < payload_.size(); ++i) {
+    for (uint i = 0; i < payload_.size(); ++i) {
       if (payload_[i] < other.payload_[i]) {
         return true;
       }

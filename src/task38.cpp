@@ -29,11 +29,11 @@ std::string ConcatenateNumbersAsStrings(const std::vector<uint> &vec) {
 TEST(Task38, MultiplyEachElement) {
   std::vector<uint> vec{1, 2, 3, 6};
   vec = MultiplyEachElement(vec, 5);
-  ASSERT_EQ(4, vec.size());
-  EXPECT_EQ(5, vec[0]);
-  EXPECT_EQ(10, vec[1]);
-  EXPECT_EQ(15, vec[2]);
-  EXPECT_EQ(30, vec[3]);
+  ASSERT_EQ(4u, vec.size());
+  EXPECT_EQ(5u, vec[0]);
+  EXPECT_EQ(10u, vec[1]);
+  EXPECT_EQ(15u, vec[2]);
+  EXPECT_EQ(30u, vec[3]);
 }
 
 TEST(Task38, ConcatenateNumbersAsStrings) {

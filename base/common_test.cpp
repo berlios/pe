@@ -9,7 +9,7 @@ using std::string;
 using std::vector;
 
 TEST(BaseCommon, AlphabeticalValue) {
-  EXPECT_EQ(53, AlphabeticalValue("COLIN"));
+  EXPECT_EQ(53u, AlphabeticalValue("COLIN"));
 }
 
 TEST(BaseCommon, ToString) {
@@ -50,7 +50,7 @@ TEST(BaseCommon, Split) {
   string str = ",0,11,222";
   vector<string> list = Split(str, ',');
 
-  EXPECT_EQ(4, list.size());
+  EXPECT_EQ(4u, list.size());
   EXPECT_EQ("", list[0]);
   EXPECT_EQ("0", list[1]);
   EXPECT_EQ("11", list[2]);

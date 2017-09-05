@@ -20,7 +20,7 @@ uint SumOfDigitFactorials(uint n) {
 }
 
 TEST(Task34, SumOfDigitFactorials) {
-  EXPECT_EQ(145, SumOfDigitFactorials(145));
+  EXPECT_EQ(145u, SumOfDigitFactorials(145));
 }
 
 TASK(34) {

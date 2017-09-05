@@ -57,11 +57,11 @@ TEST(Task18, ParseGraph) {
   vector<vector<int>> graph;
   ParseGraph(data, &graph);
 
-  EXPECT_EQ(4, graph.size());
-  EXPECT_EQ(1, graph[0].size());
-  EXPECT_EQ(2, graph[1].size());
-  EXPECT_EQ(3, graph[2].size());
-  EXPECT_EQ(4, graph[3].size());
+  EXPECT_EQ(4u, graph.size());
+  EXPECT_EQ(1u, graph[0].size());
+  EXPECT_EQ(2u, graph[1].size());
+  EXPECT_EQ(3u, graph[2].size());
+  EXPECT_EQ(4u, graph[3].size());
 
   EXPECT_EQ(3, graph[0][0]);
   EXPECT_EQ(7, graph[1][0]);

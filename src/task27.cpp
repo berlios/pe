@@ -16,7 +16,7 @@ uint LengthOfPrimeSequence(const Quadratic<mpz_class> &f) {
 
 TEST(Task27, LengthOfPrimeSequence) {
   Quadratic<mpz_class> f(1, -79, 1601);
-  EXPECT_EQ(80, LengthOfPrimeSequence(f));
+  EXPECT_EQ(80u, LengthOfPrimeSequence(f));
 }
 
 TASK(27) {

@@ -36,11 +36,11 @@ int GetFamilySizeUsingMask(const mpz_class& p, uint mask) {
 }
 
 bool AreAllDigitsSameWithMask(const mpz_class& num, uint mask) {
-  int digit;
+  uint digit;
   bool digit_is_set = false;
   mpz_class num_copy = num;
 
-  for (int i = 0; i < DigitCount(num); ++i) {
+  for (uint i = 0; i < DigitCount(num); ++i) {
     int last_bit = mask % 2;
     if (last_bit == 1) {
       if (!digit_is_set) {
