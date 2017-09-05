@@ -2,6 +2,7 @@
 #include <gmpxx.h>
 #include <vector>
 
+#include "base/common.h"
 #include "base/digit_manipulation.h"
 #include "base/task.h"
 #include "gtest/gtest.h"

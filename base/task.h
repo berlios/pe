@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 
-#include "base/common.h"
+#include "base/macros.h"
 
 namespace euler {
 

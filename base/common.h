@@ -4,12 +4,6 @@
 #include <string>
 #include <vector>
 
-// A macro to disallow the copy constructor and operator= functions
-// This should be used in the private: declarations for a class
-#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
-  TypeName(const TypeName&);               \
-  void operator=(const TypeName&)
-
 uint AlphabeticalValue(const std::string &word);
 std::string ToString(int n);
 void DeleteLeadingChars(char c, std::string *str);

@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+#include "base/common.h"
 #include "base/task.h"
 #include "gtest/gtest.h"
 
