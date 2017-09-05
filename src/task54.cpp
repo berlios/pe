@@ -431,7 +431,7 @@ void PokerHand::CalculateRank() {
   }
 }
 
-TEST(Poker, Test1) {
+TEST(Task54, Test1) {
   // Pair of Fives.
   PokerHand hand_a("5H 5C 6S 7S KD");
   // Pair of Eights.
@@ -442,7 +442,7 @@ TEST(Poker, Test1) {
   EXPECT_TRUE(hand_a < hand_b);
 }
 
-TEST(Poker, Test2) {
+TEST(Task54, Test2) {
   // Highest card Ace.
   PokerHand hand_a("5D 8C 9S JS AC");
   // Highest card Queen.
@@ -453,7 +453,7 @@ TEST(Poker, Test2) {
   EXPECT_TRUE(hand_a > hand_b);
 }
 
-TEST(Poker, Test3) {
+TEST(Task54, Test3) {
   // Three Aces.
   PokerHand hand_a("2D 9C AS AH AC");
   // Flush with Diamonds.
@@ -464,7 +464,7 @@ TEST(Poker, Test3) {
   EXPECT_TRUE(hand_a < hand_b);
 }
 
-TEST(Poker, Test4) {
+TEST(Task54, Test4) {
   // Pair of Queens, Highest card Nine.
   PokerHand hand_a("4D 6S 9H QH QC");
   // Pair of Queens, Highest card Seven.
@@ -475,7 +475,7 @@ TEST(Poker, Test4) {
   EXPECT_TRUE(hand_a > hand_b);
 }
 
-TEST(Poker, Test5) {
+TEST(Task54, Test5) {
   // Full House, With Three Fours.
   PokerHand hand_a("2H 2D 4C 4D 4S");
   // Full House, with Three Threes.
