@@ -7,7 +7,7 @@
 
 TASK(42) {
   std::vector<std::string> words{
-#include "src/042_words.txt"  // Hm, neat.
+#include "src/data/042_words.txt"  // Hm, neat.
   };
 
   int count = 0;

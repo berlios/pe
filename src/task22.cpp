@@ -8,7 +8,7 @@
 
 TEST(Task22, Colin) {
   std::vector<std::string> words{
-#include "src/022_names.txt"
+#include "src/data/022_names.txt"
   };
 
   std::sort(words.begin(), words.end());
@@ -18,7 +18,7 @@ TEST(Task22, Colin) {
 
 TASK(22) {
   std::vector<std::string> words{
-#include "src/022_names.txt"
+#include "src/data/022_names.txt"
   };
 
   std::sort(words.begin(), words.end());

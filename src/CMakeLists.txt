@@ -68,5 +68,9 @@ set(SRC_TESTS
 add_executable(out task_main.cpp ${SRC_CXX} ${SRC_HXX})
 target_link_libraries(out base gtest ${LIBGMPXX_LIBRARIES})
 
+add_custom_command(TARGET out PRE_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory
+  ${CMAKE_CURRENT_SOURCE_DIR}/data ${CMAKE_CURRENT_BINARY_DIR})
+
 add_executable(src_tests ${SRC_CXX} ${SRC_HXX} ${SRC_TESTS})
 target_link_libraries(src_tests base gtest_main ${LIBGMPXX_LIBRARIES})
