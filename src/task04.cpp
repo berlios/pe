@@ -2,21 +2,13 @@
 #include <string>
 
 #include "base/common.h"
+#include "base/digit_manipulation.h"
 #include "base/task.h"
 #include "gtest/gtest.h"
 
 using std::abs;
 using std::min;
 using std::string;
-
-bool IsPalindrome(string str) {
-  int str_length = str.size();
-  for (int i = 0; i < str_length; ++i) {
-    if (str[i] != str[str_length - i - 1])
-      return false;
-  }
-  return true;
-}
 
 // Finds largest integer palindrom that can be represented as x*y
 // with x and y both less than this function's only argument.
@@ -31,7 +23,7 @@ string LargestPalindrome(int cap) {
       int x = (i + j)/2;
       int y = (i - j)/2;
 
-      if (IsPalindrome(ToString(x*y)) && largest_palindrome < x*y) {
+      if (IsPalindrome(x*y) && largest_palindrome < x*y) {
         largest_palindrome = x*y;
       }
     }
@@ -42,15 +34,6 @@ string LargestPalindrome(int cap) {
 
 TEST(Task4, LargestPalindrome) {
   EXPECT_EQ("9009", LargestPalindrome(100));
-}
-
-TEST(Task4, IsPalindrome) {
-  EXPECT_TRUE(IsPalindrome("9009"));
-  EXPECT_TRUE(IsPalindrome("1234567887654321"));
-  EXPECT_TRUE(IsPalindrome("., mnrewqwernm ,."));
-
-  EXPECT_FALSE(IsPalindrome("-4"));
-  EXPECT_FALSE(IsPalindrome("., mnnm, ."));
 }
 
 TASK(4) {

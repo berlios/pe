@@ -85,6 +85,15 @@ mpz_class Reverse(const mpz_class &num) {
   return ReverseInBase(num, 10);
 }
 
+bool IsPalindrome(const mpz_class &num) {
+  std::string str = num.get_str();
+  for (size_t i = 0; i < str.size() / 2; ++i) {
+    if (str[i] != str[str.size() - i - 1])
+      return false;
+  }
+  return true;
+}
+
 mpz_class DeleteFirstDigit(const mpz_class &num) {
   uint length = DigitCount(abs(num)) - 1;
   mpz_class tmp = 10;

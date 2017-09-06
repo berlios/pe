@@ -52,6 +52,19 @@ TEST(DigitManipulation, Reverse) {
   EXPECT_EQ(585, ReverseInBase(585, 2));
 }
 
+TEST(DigitManipulation, IsPalindrome) {
+  EXPECT_TRUE(IsPalindrome(0));
+  EXPECT_TRUE(IsPalindrome(9));
+  EXPECT_TRUE(IsPalindrome(11));
+  EXPECT_TRUE(IsPalindrome(12344321));
+  EXPECT_TRUE(IsPalindrome(1234321));
+
+  // We consider all negative numbers to not be palindromes.
+  EXPECT_FALSE(IsPalindrome(-1));
+  EXPECT_FALSE(IsPalindrome(10));
+  EXPECT_FALSE(IsPalindrome(1231));
+}
+
 TEST(DigitManipulation, DeleteFirstAndLastDigits) {
   EXPECT_EQ(0, DeleteLastDigit(7));
   EXPECT_EQ(0, DeleteLastDigit(-3));
