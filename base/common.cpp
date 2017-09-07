@@ -64,10 +64,10 @@ std::vector<std::string> Split(const std::string &to_split, char delimiter) {
   return ret;
 }
 
-void ReadFileIntoString(const std::string &filename, std::string *output) {
+std::string ReadFileIntoString(const std::string &filename) {
   std::ifstream t(filename);
   std::stringstream buffer;
   buffer << t.rdbuf();
-  *output = buffer.str();
+  return buffer.str();
 }
 

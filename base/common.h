@@ -14,6 +14,6 @@ void DeleteLeadingZeroes(std::string *str);
 
 std::vector<std::string> Split(const std::string &to_split, char delimiter);
 
-void ReadFileIntoString(const std::string &filename, std::string *output);
+std::string ReadFileIntoString(const std::string &filename);
 
 #endif  // BASE_COMMON_H_
