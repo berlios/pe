@@ -80,8 +80,6 @@ std::vector<uint8_t> GetEqualDistanceBytes(const std::vector<uint8_t>& data,
   return result;
 }
 
-#include <iostream>
-
 TASK(59) {
   auto codes = Split(ReadFileIntoString("data/059_cipher.txt"), ',');
   std::vector<uint8_t> cipher(codes.size());
