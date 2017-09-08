@@ -11,7 +11,7 @@ using std::vector;
 
 // graph should have 1 int in first vector, 2 ints in second and etc.
 // Finds max sum along the path from top to bottom.
-int FindMaxSum(const vector<vector<int>> graph) {
+int FindMaxSum(const vector<vector<int>>& graph) {
   vector<vector<int>> sum_graph;
   sum_graph.resize(graph.size());
   for (size_t i = 0; i < sum_graph.size(); ++i) {
