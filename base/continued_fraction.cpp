@@ -7,7 +7,6 @@ mpq_class FiniteNumberSequenceToFraction(const std::vector<int>& sequence) {
 
   for (auto i = sequence.rbegin() + 1; i != sequence.rend(); ++i) {
     result = *i + (1/result);
-    result.canonicalize();
   }
 
   return result;
