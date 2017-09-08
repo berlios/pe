@@ -9,6 +9,7 @@ set(BASE_HXX
   digit_manipulation.h
   number_theory.h
   pythagorean_triple.h
+  quadratic_rational.h
   task.h
 )
 
@@ -28,6 +29,7 @@ set(BASE_TESTS
   digit_manipulation_test.cpp
   number_theory_test.cpp
   pythagorean_triple_test.cpp
+  quadratic_rational_test.cpp
 )
 
 add_library(base ${BASE_CXX} ${BASE_HXX})
