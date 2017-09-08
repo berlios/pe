@@ -1,6 +1,8 @@
 #include <gmpxx.h>
 #include <map>
 
+bool IsPrime(int num);
+bool IsPrime(const mpz_class& num);
 std::vector<int> Sieve(int upper_limit);
 std::map<mpz_class, uint> Factorize(const mpz_class &number);
 int NumberOfPrimeDivisors(const mpz_class &number);

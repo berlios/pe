@@ -1,5 +1,13 @@
 #include "base/number_theory.h"
 
+bool IsPrime(int num) {
+  return IsPrime(mpz_class(num));
+}
+
+bool IsPrime(const mpz_class &num) {
+  return mpz_probab_prime_p(num.get_mpz_t(), 15) != 0;
+}
+
 std::vector<int> Sieve(int upper_limit) {
   std::vector<bool> bitmap(upper_limit, true);
   std::vector<int> result;
