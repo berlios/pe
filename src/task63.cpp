@@ -1,3 +1,5 @@
+#include <gmpxx.h>
+
 #include "base/task.h"
 
 // The key observation here is that 10^n always has n+1 digits so if 9^n has
