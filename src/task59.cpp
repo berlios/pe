@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <limits>
 
 #include "base/common.h"
 #include "base/task.h"
