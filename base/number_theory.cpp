@@ -1,8 +1,6 @@
 #include "base/number_theory.h"
 
-bool IsPrime(int num) {
-  return IsPrime(mpz_class(num));
-}
+bool IsPrime(int num) { return IsPrime(mpz_class(num)); }
 
 bool IsPrime(const mpz_class &num) {
   return mpz_probab_prime_p(num.get_mpz_t(), 15) != 0;
@@ -12,16 +10,16 @@ std::vector<int> Sieve(int upper_limit) {
   std::vector<bool> bitmap(upper_limit, true);
   std::vector<int> result;
 
-  for (int i = 2; i < upper_limit/2; ++i) {
+  for (int i = 2; i < upper_limit / 2; ++i) {
     if (bitmap[i]) {
       result.push_back(i);
-      for (int64_t j = (int64_t)i*i; j < upper_limit; j += i) {
+      for (int64_t j = (int64_t)i * i; j < upper_limit; j += i) {
         bitmap[j] = false;
       }
     }
   }
 
-  for (int i = upper_limit/2; i < upper_limit; ++i) {
+  for (int i = upper_limit / 2; i < upper_limit; ++i) {
     if (bitmap[i]) {
       result.push_back(i);
     }
@@ -80,7 +78,7 @@ mpz_class SumOfAllDivisors(const mpz_class &number) {
     mpz_class tmp;
     mpz_pow_ui(tmp.get_mpz_t(), prime.get_mpz_t(), deg + 1);
 
-    res *= (tmp - 1)/(prime - 1);
+    res *= (tmp - 1) / (prime - 1);
   }
 
   return res;
@@ -105,7 +103,7 @@ uint LengthOfRepeatingCycle(const mpq_class &fraction) {
   mpz_class ten_to_the_power_of_k = 10;
 
   while (true) {
-    mpq_class tmp = fraction*(ten_to_the_power_of_k - 1);
+    mpq_class tmp = fraction * (ten_to_the_power_of_k - 1);
     tmp.canonicalize();
 
     auto denominator_factorization = Factorize(tmp.get_den());
@@ -137,7 +135,27 @@ mpz_class NthTriangleNumber(uint n) {
 bool IsTriangleNumber(const mpz_class &num) {
   mpz_class sqrt, doubled_num{num * 2};
   mpz_sqrt(sqrt.get_mpz_t(), doubled_num.get_mpz_t());
-  return doubled_num == sqrt*(sqrt + 1);
+  return doubled_num == sqrt * (sqrt + 1);
+}
+
+mpz_class NthSquareNumber(uint n) {
+  mpz_class result{n};
+
+  result *= n;
+
+  return result;
+}
+
+bool IsSquareNumber(const mpz_class &num) {
+  // mpz_perfect_square_p returns 0 if the number is definitely not a square
+  // and non-zero if it's probably a square so we must check for that later too.
+  if (mpz_perfect_square_p(num.get_mpz_t()) == 0) {
+    return false;
+  }
+
+  mpz_class square_root = sqrt(num);
+
+  return square_root * square_root == num;
 }
 
 mpz_class NthPentagonalNumber(uint n) {
@@ -147,8 +165,8 @@ mpz_class NthPentagonalNumber(uint n) {
   result -= 1;  // result == 3n - 1
   result *= n;  // result == n(3n - 1)
 
-  // We know that n*(3n - 1) is divisible by 2 so mpz_divexact_ui(...) is the most
-  // suitable function in this case.
+  // We know that n*(3n - 1) is divisible by 2 so mpz_divexact_ui(...) is
+  // the most suitable function in this case.
   mpz_divexact_ui(result.get_mpz_t(), result.get_mpz_t(), 2);
 
   return result;
@@ -158,20 +176,84 @@ bool IsPentagonalNumber(const mpz_class &num) {
   // Since expressions x = n*(3n - 2)/2 and n = (sqrt(24x + 1) + 1)/6 are
   // equivalent it suffices to check 24x + 1 is a perfect square and
   // sqrt(24x + 1) has residue 5 modulo 6.
-  mpz_class n_times_24_plus_1{num*24 + 1};
+  mpz_class n_times_24_plus_1{num * 24 + 1};
 
-  // mpz_perfect_square_p returns 0 if the number is definitely not a square
-  // and non-zero if it's probably a square so we must check for that later too.
-  if (mpz_perfect_square_p(n_times_24_plus_1.get_mpz_t()) == 0) {
-    return false;
-  }
-
-  mpz_class sqrt;
-  mpz_sqrt(sqrt.get_mpz_t(), n_times_24_plus_1.get_mpz_t());
-
-  if (sqrt*sqrt == n_times_24_plus_1 && sqrt % 6 == 5) {
+  if (IsSquareNumber(n_times_24_plus_1) && sqrt(n_times_24_plus_1) % 6 == 5) {
     return true;
-  } else {
-    return false;
   }
+
+  return false;
+}
+
+mpz_class NthHexagonalNumber(uint n) {
+  mpz_class result{n};
+
+  result *= 2;  // result == 2n
+  result -= 1;  // result == 2n - 1
+  result *= n;  // result == n(2n - 1)
+
+  return result;
+}
+
+bool IsHexagonalNumber(const mpz_class &num) {
+  // Since expressions x = n*(2n - 1)/2 and n = (sqrt(8x + 1) + 1)/4 are
+  // equivalent it suffices to check 8x + 1 is a perfect square and
+  // sqrt(8x + 1) has residue 3 modulo 4.
+  mpz_class n_times_8_plus_1{num * 8 + 1};
+
+  if (IsSquareNumber(n_times_8_plus_1) && sqrt(n_times_8_plus_1) % 4 == 3) {
+    return true;
+  }
+
+  return false;
+}
+
+mpz_class NthHeptagonalNumber(uint n) {
+  mpz_class result{n};
+
+  result *= 5;  // result == 5n
+  result -= 3;  // result == 5n - 3
+  result *= n;  // result == n(5n - 3)
+
+  // We know that n*(5n - 3) is divisible by 2 so mpz_divexact_ui(...) is
+  // the most suitable function in this case.
+  mpz_divexact_ui(result.get_mpz_t(), result.get_mpz_t(), 2);
+
+  return result;
+}
+
+bool IsHeptagonalNumber(const mpz_class &num) {
+  // Since expressions x = n*(2n - 1)/2 and n = (sqrt(40x + 9) + 3)/10 are
+  // equivalent it suffices to check 40x + 9 is a perfect square and
+  // sqrt(40x + 9) has residue 7 modulo 10.
+  mpz_class n_times_40_plus_9{num * 40 + 9};
+
+  if (IsSquareNumber(n_times_40_plus_9) && sqrt(n_times_40_plus_9) % 10 == 7) {
+    return true;
+  }
+
+  return false;
+}
+
+mpz_class NthOctagonalNumber(uint n) {
+  mpz_class result{n};
+
+  result *= 3;  // result == 3n
+  result -= 2;  // result == 3n - 2
+  result *= n;  // result == n(3n - 2)
+
+  return result;
+}
+
+bool IsOctagonalNumber(const mpz_class &num) {
+  // Since expressions x = n*(3n - 2) and n = (sqrt(3x + 1) + 1)/3 are
+  // equivalent it suffices to check 3x + 1 is a perfect square and
+  // sqrt(3x + 1) has residue 2 modulo 3.
+  mpz_class n_times_3_plus_1{num * 3 + 1};
+
+  if (IsSquareNumber(n_times_3_plus_1) && sqrt(n_times_3_plus_1) % 3 == 2) {
+    return true;
+  }
+
+  return false;
 }

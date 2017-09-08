@@ -14,9 +14,25 @@ uint LengthOfRepeatingCycle(const mpq_class &fraction);
 mpz_class NthTriangleNumber(uint n);
 bool IsTriangleNumber(const mpz_class &num);
 
+// Square numbers are of the form i*i
+mpz_class NthSquareNumber(uint n);
+bool IsSquareNumber(const mpz_class &num);
+
 // Pentagonal numbers are of the form i*(3i - 1)/2
 mpz_class NthPentagonalNumber(uint n);
 bool IsPentagonalNumber(const mpz_class &num);
+
+// Hexagonal numbers are of the form i*(2i - 1)
+mpz_class NthHexagonalNumber(uint n);
+bool IsHexagonalNumber(const mpz_class &num);
+
+// Heptagonal numbers are of the form i*(5i - 3)/2
+mpz_class NthHeptagonalNumber(uint n);
+bool IsHeptagonalNumber(const mpz_class &num);
+
+// Octagonal numbers are of the form i*(3i - 2)
+mpz_class NthOctagonalNumber(uint n);
+bool IsOctagonalNumber(const mpz_class &num);
 
 namespace {
 template<class T>

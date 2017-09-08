@@ -63,6 +63,18 @@ TEST(NumberTheory, TriangleNumbers) {
   EXPECT_FALSE(IsTriangleNumber(65));
 }
 
+TEST(NumberTheory, SquareNumbers) {
+  EXPECT_EQ(1, NthSquareNumber(1));
+  EXPECT_EQ(9, NthSquareNumber(3));
+  EXPECT_EQ(25, NthSquareNumber(5));
+
+  EXPECT_TRUE(IsSquareNumber(49));
+  EXPECT_TRUE(IsSquareNumber(64));
+
+  EXPECT_FALSE(IsSquareNumber(63));
+  EXPECT_FALSE(IsSquareNumber(65));
+}
+
 TEST(NumberTheory, PentagonalNumbers) {
   EXPECT_EQ(1, NthPentagonalNumber(1));
   EXPECT_EQ(22, NthPentagonalNumber(4));
@@ -78,6 +90,44 @@ TEST(NumberTheory, PentagonalNumbers) {
   EXPECT_FALSE(IsPentagonalNumber(52));
 }
 
+TEST(NumberTheory, HexagonalNumbers) {
+  EXPECT_EQ(1, NthHexagonalNumber(1));
+  EXPECT_EQ(15, NthHexagonalNumber(3));
+  EXPECT_EQ(45, NthHexagonalNumber(5));
+
+  EXPECT_TRUE(IsHexagonalNumber(1));
+  EXPECT_TRUE(IsHexagonalNumber(6));
+  EXPECT_TRUE(IsHexagonalNumber(28));
+
+  EXPECT_FALSE(IsHexagonalNumber(27));
+  EXPECT_FALSE(IsHexagonalNumber(29));
+}
+
+TEST(NumberTheory, HeptagonalNumbers) {
+  EXPECT_EQ(1, NthHeptagonalNumber(1));
+  EXPECT_EQ(18, NthHeptagonalNumber(3));
+  EXPECT_EQ(55, NthHeptagonalNumber(5));
+
+  EXPECT_TRUE(IsHeptagonalNumber(1));
+  EXPECT_TRUE(IsHeptagonalNumber(7));
+  EXPECT_TRUE(IsHeptagonalNumber(34));
+
+  EXPECT_FALSE(IsHeptagonalNumber(33));
+  EXPECT_FALSE(IsHeptagonalNumber(35));
+}
+
+TEST(NumberTheory, OctagonalNumbers) {
+  EXPECT_EQ(1, NthOctagonalNumber(1));
+  EXPECT_EQ(21, NthOctagonalNumber(3));
+  EXPECT_EQ(65, NthOctagonalNumber(5));
+
+  EXPECT_TRUE(IsOctagonalNumber(1));
+  EXPECT_TRUE(IsOctagonalNumber(8));
+  EXPECT_TRUE(IsOctagonalNumber(40));
+
+  EXPECT_FALSE(IsOctagonalNumber(41));
+  EXPECT_FALSE(IsOctagonalNumber(39));
+}
 TEST(NumberTheory, GDC) {
   EXPECT_EQ(6, GCD(24, 18));
   EXPECT_EQ(1, GCD(24, 1234567891));
