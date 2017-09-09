@@ -85,6 +85,10 @@ class PrimitivePythagoreanTriple {
     return !(*this == other);
   }
 
+  T Perimeter() const {
+    return a_ + b_ + c_;
+  }
+
   // Returns the odd of the two catheti.
   T a() const { return a_; }
 
