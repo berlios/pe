@@ -11,27 +11,27 @@ mpz_class SumOfProperDivisors(const mpz_class &number);
 uint LengthOfRepeatingCycle(const mpq_class &fraction);
 
 // Triangle numbers are of the form i*(i + 1)/2
-mpz_class NthTriangleNumber(uint n);
+mpz_class NthTriangleNumber(int n);
 bool IsTriangleNumber(const mpz_class &num);
 
 // Square numbers are of the form i*i
-mpz_class NthSquareNumber(uint n);
+mpz_class NthSquareNumber(int n);
 bool IsSquareNumber(const mpz_class &num);
 
 // Pentagonal numbers are of the form i*(3i - 1)/2
-mpz_class NthPentagonalNumber(uint n);
+mpz_class NthPentagonalNumber(int n);
 bool IsPentagonalNumber(const mpz_class &num);
 
 // Hexagonal numbers are of the form i*(2i - 1)
-mpz_class NthHexagonalNumber(uint n);
+mpz_class NthHexagonalNumber(int n);
 bool IsHexagonalNumber(const mpz_class &num);
 
 // Heptagonal numbers are of the form i*(5i - 3)/2
-mpz_class NthHeptagonalNumber(uint n);
+mpz_class NthHeptagonalNumber(int n);
 bool IsHeptagonalNumber(const mpz_class &num);
 
 // Octagonal numbers are of the form i*(3i - 2)
-mpz_class NthOctagonalNumber(uint n);
+mpz_class NthOctagonalNumber(int n);
 bool IsOctagonalNumber(const mpz_class &num);
 
 namespace {

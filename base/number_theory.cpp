@@ -119,7 +119,7 @@ uint LengthOfRepeatingCycle(const mpq_class &fraction) {
   }
 }
 
-mpz_class NthTriangleNumber(uint n) {
+mpz_class NthTriangleNumber(int n) {
   mpz_class result{n};
 
   result *= n;
@@ -138,7 +138,7 @@ bool IsTriangleNumber(const mpz_class &num) {
   return doubled_num == sqrt * (sqrt + 1);
 }
 
-mpz_class NthSquareNumber(uint n) {
+mpz_class NthSquareNumber(int n) {
   mpz_class result{n};
 
   result *= n;
@@ -158,7 +158,7 @@ bool IsSquareNumber(const mpz_class &num) {
   return square_root * square_root == num;
 }
 
-mpz_class NthPentagonalNumber(uint n) {
+mpz_class NthPentagonalNumber(int n) {
   mpz_class result{n};
 
   result *= 3;  // result == 3n
@@ -185,7 +185,7 @@ bool IsPentagonalNumber(const mpz_class &num) {
   return false;
 }
 
-mpz_class NthHexagonalNumber(uint n) {
+mpz_class NthHexagonalNumber(int n) {
   mpz_class result{n};
 
   result *= 2;  // result == 2n
@@ -208,7 +208,7 @@ bool IsHexagonalNumber(const mpz_class &num) {
   return false;
 }
 
-mpz_class NthHeptagonalNumber(uint n) {
+mpz_class NthHeptagonalNumber(int n) {
   mpz_class result{n};
 
   result *= 5;  // result == 5n
@@ -235,7 +235,7 @@ bool IsHeptagonalNumber(const mpz_class &num) {
   return false;
 }
 
-mpz_class NthOctagonalNumber(uint n) {
+mpz_class NthOctagonalNumber(int n) {
   mpz_class result{n};
 
   result *= 3;  // result == 3n

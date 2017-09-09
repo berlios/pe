@@ -1,5 +1,5 @@
-# Recommended directory for an out-of-source build
-build
+# Recommended directory names for an out-of-source build
+build*
 
 # KDevelop files
 *.kdev4

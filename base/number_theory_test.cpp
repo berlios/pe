@@ -90,6 +90,12 @@ TEST(NumberTheory, PentagonalNumbers) {
   EXPECT_FALSE(IsPentagonalNumber(52));
 }
 
+TEST(NumberTheory, GenralizedPentagonalNumbers) {
+  EXPECT_EQ(0, NthPentagonalNumber(0));
+  EXPECT_EQ(2, NthPentagonalNumber(-1));
+  EXPECT_EQ(7, NthPentagonalNumber(-2));
+}
+
 TEST(NumberTheory, HexagonalNumbers) {
   EXPECT_EQ(1, NthHexagonalNumber(1));
   EXPECT_EQ(15, NthHexagonalNumber(3));
