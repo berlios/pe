@@ -69,10 +69,7 @@ std::string ShortestCommonSuperstring(const std::vector<std::string>& strings) {
 }
 
 TASK(79) {
-  std::string file_contents = ReadFileIntoString("data/079_keylog.txt");
-  while (file_contents.back() == '\n') {
-    file_contents.pop_back();
-  }
-  std::vector<std::string> strings = Split(file_contents, '\n');
+  std::vector<std::string> strings =
+      Split(ReadFileIntoString("data/079_keylog.txt"), '\n', SkipEmpty());
   return ShortestCommonSuperstring(strings);
 }

@@ -56,3 +56,13 @@ TEST(BaseCommon, Split) {
   EXPECT_EQ("11", list[2]);
   EXPECT_EQ("222", list[3]);
 }
+
+TEST(BaseCommon, SplitSkipEmpty) {
+  string str = "0,11,222,";
+  vector<string> list = Split(str, ',', SkipEmpty());
+
+  EXPECT_EQ(3u, list.size());
+  EXPECT_EQ("0", list[0]);
+  EXPECT_EQ("11", list[1]);
+  EXPECT_EQ("222", list[2]);
+}

@@ -37,33 +37,6 @@ void DeleteLeadingZeroes(std::string *str) {
   }
 }
 
-class IsChar {
- public:
-  IsChar(char c) : c_(c) { }
-  bool operator()(char c) {
-    return c == c_;
-  }
- private:
-  char c_;
-};
-
-std::vector<std::string> Split(const std::string &to_split, char delimiter) {
-  std::vector<std::string> ret;
-
-  size_t start = 0;
-  size_t end = to_split.find_first_of(delimiter);
-
-  while (end != std::string::npos) {
-    ret.push_back(to_split.substr(start, end - start));
-    start = end + 1;
-    end = to_split.find_first_of(delimiter, start);
-  }
-
-  ret.push_back(to_split.substr(start));
-
-  return ret;
-}
-
 std::string ReadFileIntoString(const std::string &filename) {
   std::ifstream t(filename);
   std::stringstream buffer;

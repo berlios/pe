@@ -82,7 +82,8 @@ std::vector<uint8_t> GetEqualDistanceBytes(const std::vector<uint8_t>& data,
 }
 
 TASK(59) {
-  auto codes = Split(ReadFileIntoString("data/059_cipher.txt"), ',');
+  auto codes =
+      Split(ReadFileIntoString("data/059_cipher.txt"), ',', SkipEmpty());
   std::vector<uint8_t> cipher(codes.size());
   std::transform(codes.begin(), codes.end(), cipher.begin(),
                  [](const std::string& s) { return std::stoi(s); });

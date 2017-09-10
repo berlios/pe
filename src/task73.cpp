@@ -1,5 +1,6 @@
 #include "base/task.h"
 
+namespace {
 struct Node {
   std::pair<int, int> left;
   std::pair<int, int> right;
@@ -22,6 +23,7 @@ void SternBrocotDFS(const Node& node, int denominator_limit, int* counter) {
   if (mid.second > 2 * mid.first) {
     SternBrocotDFS({mid, node.right}, denominator_limit, counter);
   }
+}
 }
 
 TASK(73) {

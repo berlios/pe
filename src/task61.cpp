@@ -6,6 +6,7 @@
 #include "base/number_theory.h"
 #include "base/task.h"
 
+namespace {
 enum class NumberType {
   Triangle,
   Square,
@@ -52,6 +53,7 @@ bool FindCycleOfFixedLength(const std::vector<std::vector<int>>& graph,
     current_sequence->pop_back();
   }
   return false;
+}
 }
 
 TASK(61) {
