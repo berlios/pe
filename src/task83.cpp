@@ -59,9 +59,9 @@ int Dijkstra(const std::vector<std::vector<Edge>>& graph, int start, int end) {
 }
 }
 
-TASK(82) {
+TASK(83) {
   auto rows =
-      Split(ReadFileIntoString("data/082_matrix.txt"), '\n', SkipEmpty());
+      Split(ReadFileIntoString("data/083_matrix.txt"), '\n', SkipEmpty());
   const int n = rows.size();
 
   std::vector<std::vector<int>> matrix;
@@ -76,35 +76,33 @@ TASK(82) {
 
   auto matrix_to_graph = [n](int i, int j) { return n * i + j; };
 
-  // Two extra vertices are the artificial source and sink.
-  // graph[n*n] is the source.
-  // graph[n*n + 1] is the sink.
-  std::vector<std::vector<Edge>> graph(n * n + 2);
-  const int source = n * n;
-  const int sink = n * n + 1;
+  std::vector<std::vector<Edge>> graph(n * n);
 
   for (int i = 0; i < n; ++i) {
-    for (int j = 0; j < n - 1; ++j) {
+    for (int j = 0; j < n; ++j) {
       if (i != 0) {
         graph[matrix_to_graph(i, j)].emplace_back(matrix_to_graph(i - 1, j),
                                                   matrix[i][j]);
       }
-      graph[matrix_to_graph(i, j)].emplace_back(matrix_to_graph(i, j + 1),
-                                                matrix[i][j]);
 
       if (i != n - 1) {
         graph[matrix_to_graph(i, j)].emplace_back(matrix_to_graph(i + 1, j),
                                                   matrix[i][j]);
       }
+
+      if (j != 0) {
+        graph[matrix_to_graph(i, j)].emplace_back(matrix_to_graph(i, j - 1),
+                                                  matrix[i][j]);
+      }
+
+      if (j != n - 1) {
+        graph[matrix_to_graph(i, j)].emplace_back(matrix_to_graph(i, j + 1),
+                                                  matrix[i][j]);
+      }
     }
   }
 
-  for (int i = 0; i < n; ++i) {
-    graph[source].emplace_back(matrix_to_graph(i, 0), 0);
-  }
-  for (int i = 0; i < n; ++i) {
-    graph[matrix_to_graph(i, n - 1)].emplace_back(sink, matrix[i][n - 1]);
-  }
-
-  return Dijkstra(graph, source, sink);
+  const int source = matrix_to_graph(0, 0);
+  const int sink = matrix_to_graph(n - 1, n - 1);
+  return Dijkstra(graph, source, sink) + matrix[n - 1][n - 1];
 }
