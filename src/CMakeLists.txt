@@ -89,6 +89,7 @@ set(SRC_CXX
   task81.cpp
   task82.cpp
   task83.cpp
+  task84.cpp
 )
 
 # *_test.cpp files
@@ -97,6 +98,7 @@ set(SRC_TESTS
 
 add_executable(out task_main.cpp ${SRC_CXX} ${SRC_HXX})
 target_link_libraries(out base gtest ${LIBGMPXX_LIBRARIES})
+target_include_directories(out PUBLIC ${CMAKE_SOURCE_DIR}/external/eigen)
 
 add_custom_command(TARGET out PRE_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory
@@ -104,3 +106,4 @@ add_custom_command(TARGET out PRE_BUILD
 
 add_executable(src_tests ${SRC_CXX} ${SRC_HXX} ${SRC_TESTS})
 target_link_libraries(src_tests base gtest_main ${LIBGMPXX_LIBRARIES})
+target_include_directories(src_tests PUBLIC ${CMAKE_SOURCE_DIR}/external/eigen)
