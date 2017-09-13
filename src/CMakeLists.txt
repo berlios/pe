@@ -97,6 +97,7 @@ set(SRC_CXX
   task89.cpp
   task90.cpp
   task91.cpp
+  task92.cpp
 )
 
 # *_test.cpp files
