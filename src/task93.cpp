@@ -13,6 +13,7 @@ namespace {
 struct BinaryOperation {
   virtual mpq_class operator()(const mpq_class& a,
                                const mpq_class& b) const = 0;
+  virtual ~BinaryOperation() {}
 };
 
 struct Plus : BinaryOperation {
