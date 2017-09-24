@@ -1,0 +1,54 @@
+# List all the files here in the alphabetical order
+set(PAGE_01_CXX
+  task001.cpp
+  task002.cpp
+  task003.cpp
+  task004.cpp
+  task005.cpp
+  task006.cpp
+  task007.cpp
+  task008.cpp
+  task010.cpp
+  task011.cpp
+  task012.cpp
+  task013.cpp
+  task014.cpp
+  task015.cpp
+  task016.cpp
+  task017.cpp
+  task018.cpp
+  task019.cpp
+  task020.cpp
+  task021.cpp
+  task022.cpp
+  task023.cpp
+  task025.cpp
+  task026.cpp
+  task027.cpp
+  task028.cpp
+  task029.cpp
+  task030.cpp
+  task031.cpp
+  task032.cpp
+  task033.cpp
+  task034.cpp
+  task035.cpp
+  task036.cpp
+  task037.cpp
+  task038.cpp
+  task039.cpp
+  task040.cpp
+  task041.cpp
+  task042.cpp
+  task043.cpp
+  task044.cpp
+  task045.cpp
+  task046.cpp
+  task047.cpp
+  task048.cpp
+  task049.cpp
+  task050.cpp
+)
+
+add_library(page_01 ${PAGE_01_CXX})
+target_link_libraries(page_01 base gtest ${LIBGMPXX_LIBRARIES} eigen)

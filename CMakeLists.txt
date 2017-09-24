@@ -14,5 +14,8 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 add_subdirectory(external/googletest)
 
+add_library(eigen INTERFACE)
+target_include_directories(eigen INTERFACE external/eigen)
+
 add_subdirectory(base)
 add_subdirectory(src)
