@@ -1,9 +1,10 @@
 add_subdirectory(page_01)
 add_subdirectory(page_02)
+add_subdirectory(page_03)
 
 add_executable(out task_main.cpp)
 target_link_libraries(out
-  "-Wl,--whole-archive" page_01 page_02 "-Wl,--no-whole-archive"
+  "-Wl,--whole-archive" page_01 page_02 page_03 "-Wl,--no-whole-archive"
 )
 
 add_custom_command(TARGET out PRE_BUILD
@@ -13,5 +14,5 @@ add_custom_command(TARGET out PRE_BUILD
 add_executable(src_tests gtest_main.cpp)
 target_link_libraries(src_tests
   gtest
-  "-Wl,--whole-archive" page_01 page_02 "-Wl,--no-whole-archive"
+  "-Wl,--whole-archive" page_01 page_02 page_03 "-Wl,--no-whole-archive"
 )
