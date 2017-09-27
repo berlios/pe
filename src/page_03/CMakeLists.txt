@@ -3,6 +3,7 @@ set(PAGE_03_CXX
   task101.cpp
   task102.cpp
   task103.cpp
+  task104.cpp
 )
 
 add_library(page_03 ${PAGE_03_CXX})
