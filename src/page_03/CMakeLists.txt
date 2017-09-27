@@ -4,6 +4,7 @@ set(PAGE_03_CXX
   task102.cpp
   task103.cpp
   task104.cpp
+  task105.cpp
 )
 
 add_library(page_03 ${PAGE_03_CXX})

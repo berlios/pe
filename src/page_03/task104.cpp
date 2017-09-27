@@ -43,7 +43,6 @@ TASK(104) {
     std::string s = fib.get_str();
 
     if (IsString1To9Pandigital(s.substr(0, 9))) {
-      printf("! %d\n", k);
       break;
     }
   }
