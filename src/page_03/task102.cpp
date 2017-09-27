@@ -11,15 +11,16 @@ struct Point {
   int y = 0;
 };
 
-double CrossProductFromOrigin(Point a, Point b) {
+int CrossProductFromOrigin(const Point& a, const Point& b) {
   return a.x * b.y - a.y * b.x;
 }
-bool TriangleContainsOrigin(Point a, Point b, Point c) {
-  std::array<double, 3> cross_products;
+bool TriangleContainsOrigin(const Point& a, const Point& b, const Point& c) {
+  std::array<int, 3> cross_products;
   cross_products[0] = CrossProductFromOrigin(a, b);
   cross_products[1] = CrossProductFromOrigin(b, c);
   cross_products[2] = CrossProductFromOrigin(c, a);
 
+  // Check if elements have the same sign.
   if (*std::min_element(cross_products.begin(), cross_products.end()) > 0) {
     return true;
   }
